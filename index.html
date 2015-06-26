@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>用JS定位</title>
+<script type="text/javascript" src="http://res.csc86.com/js/"></script>
+<script type="text/javascript" src="slide.js"></script>
+<style type="text/css">
+* {padding:0;margin:0;}
+ul,ol {list-style-type:none;}
+body {font:normal 12px/1.5 "宋体";}
+.tabs_box {}
+.tabs_box dl {float:left; width:195px; border-right:1px solid #888; padding:10px;}
+#tabqh1 {width:700px; border:1px solid #888; padding:10px;}
+.tabs_box dl dt,#tabqh1 dt {position:relative; zoom:1; height:30px; line-height:30px;}
+.tabs_box dl dt ul li,#tabqh1 dt ul li {display:inline; float:left; margin-left:5px;}
+.tabs_box dl dt div,#tabqh1 dt div {position:absolute; top:1px; right:0px;}
+a.s,a:hover {color:#f60;}
+.tabs_box dl dt div a,#tabqh1 dt div a {display:none;}
+.tabs_box dl dd,#tabqh1 dt ul dd {text-align:center; line-height:20px; padding:10px 0 0 0;}
+.tabs_box dl dd ul,#tabqh1 dd ul {display:none;}
+
+.gd_box {position:relative; width:300px; height:200px; border:1px solid #999; float:left; overflow:hidden; margin-left:5px;}
+.gd_data {}
+.gd_data .gd_item{height:200px; width:300px; line-height:200px; text-align:center; font-size:200px; float:left; background:#FFF;}
+.tab_butbox {position:absolute; width:100%; height:26px; text-align:right; bottom:0; left:0; background:#CCC; opacity:.8; z-index:10;}
+.tab_butbox a {display:inline-block; *display:linline; zoom:1; width:20px; height:20px; line-height:20px; text-align:center; font-size:12px; border:1px solid #333; color:#333; margin-top:2px; margin-right:5px; overflow:hidden; text-decoration:none;}
+.tab_butbox a.s,.tab_butbox a:hover {border:1px solid #F60; color:#F60;}
+.tab_butbox span a {width:auto; padding:0 10px;}
+</style>
+<script type="text/javascript">
+$(function(){
+	var t1 = new Date();
+	var sygd1 = new slide(".gd1 .gd_data",".gd1 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slideButs:".gd1 .tab_butbox",		
+		slides_to_l:$(".gd1 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd1 .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	var sygd2 = new slide(".gd2 .gd_data",".gd2 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:1,
+		slideButs:".gd2 .tab_butbox",
+		slides_to_l:$(".gd2 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd2 .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	var sygd3 = new slide(".gd3 .gd_data",".gd3 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:0, //0 不自动切换
+		slideDirection:2,
+		slideButs:".gd3 .tab_butbox",
+		slideButs_event:"hover",	//切换按钮的触发事件
+		slides_to_l:$(".gd3 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd3 .tab_butbox span>a")[1],
+		slides_fun:slide.definedfun
+		}
+	);	
+	
+	var sygd4 = new slide(".gd4 .gd_data",".gd4 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slides_xssm:3,
+		slideButs:".gd4 .tab_butbox",
+		slides_to_l:$(".gd4 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd4 .tab_butbox span>a")[1],
+		slides_fun:slide.definedfun
+		}
+	);
+	
+
+	
+	var sygd5 = new slide(".gd5 .gd_data",".gd5 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slideSeries:1,
+		slideButs:".gd5 .tab_butbox",
+		slides_to_l:$(".gd5 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd5 .tab_butbox span>a")[1],
+		slides_fun:slide.definedfun
+		}
+	);
+	var sygd6 = new slide(".gd6 .gd_data",".gd6 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2500,
+		slideDirection:0,
+		slides_xssm:3,
+		slideSeries:1,
+		slideButs:".gd6 .tab_butbox",
+		slides_to_l:$(".gd6 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd6 .tab_butbox span>a")[1],
+		//slides_lianxu:1,
+		slides_fun:slide.definedfun
+		}
+	);
+	
+	var sygd7 = new slide(".fullbox .gd_data",".fullbox .gd_data .gd_item",{
+		slideWidth:"100%",
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slideSeries:1,
+		
+		//slidePercent:1,
+		slideButs:".fullbox .tab_butbox",		
+		slides_to_l:$(".fullbox .tab_butbox span>a")[0],
+		slides_to_r:$(".fullbox .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	
+	var sygd8 = new slide(".fullbox1 .gd_data",".fullbox1 .gd_data .gd_item",{
+		slideWidth:"33.33%",
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		//slideSeries:1,
+		slides_xssm:3,
+		//slidePercent:1,
+		slideButs:".fullbox1 .tab_butbox",		
+		slides_to_l:$(".fullbox1 .tab_butbox span>a")[0],
+		slides_to_r:$(".fullbox1 .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	//$($(".tab_butbox span>a")[0]).bind("click",function(){sygd1.syg();})
+	//$($(".tab_butbox span>a")[1]).bind("click",function(){sygd1.xyg();})	
+	$("#msg").html("绑定事件费时：" + ((new Date()).getTime()-t1.getTime()) + "毫秒");
+})
+
+</script>
+</head>
+<body>
+<div id="msg"></div>
+<div style="clear:left;"></div>
+
+<h2>三种基本切换效果</h2>
+
+<div class="gd_box gd1">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox">
+		<span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span>
+	</div>
+</div>
+<div class="gd_box gd2">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox">
+		<span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span>
+	</div>
+</div>
+<div class="gd_box gd3">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+
+<h2 style="clear:both">多项显示滚动</h2>
+<div class="gd_box gd4" style="width:900px;">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+<h2 style="clear:both">自动滚动无回弹效果</h2>
+<div class="gd_box gd5">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+<div class="gd_box gd6" style="width:900px;">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+<style>
+	.full {position:relative; overflow:hidden; height:200px; border:1px solid #000;}
+	.fullbox {position:relative; overflow:hidden; height:200px; border:1px solid #000;}
+</style>
+<h2 style="clear:both">相对宽度100%</h2>
+<div class="full fullbox">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+<br />
+<div class="full fullbox1">
+	<div class="gd_data">
+		<div class="gd_item">1</div>
+		<div class="gd_item">2</div>
+		<div class="gd_item">3</div>
+		<div class="gd_item">4</div>
+		<div class="gd_item">5</div>
+		<div class="gd_item">6</div>
+	</div>
+	<div class="tab_butbox"><span style="float:left; margin-left:5px;"><a href="javascript:;">上一个</a><a href="javascript:;">下一个</a></span></div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>
