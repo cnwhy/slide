@@ -73,8 +73,9 @@ new slide("#id","#id>li",{
 					}
 					+function() {
 						var n = i;
-						dom.bind(o.slideButs_event, function (a) {
-							//o.manageControls(n);
+						var eventname = o.slideButs_event;
+						eventname = eventname.replace(/\bhover\b/g,'mouseenter');
+						dom.bind(eventname, function (a) {
 							o.toItem(n);
 							return false;
 						});
