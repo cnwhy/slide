@@ -32,60 +32,60 @@ a.s,a:hover {color:#f60;}
 <script type="text/javascript">
 $(function(){
 	var t1 = new Date();
-	// var sygd1 = new slide(".gd1 .gd_data",".gd1 .gd_data .gd_item",{
-	// 	slideWidth:300,
-	// 	slideHeight:200,
-	// 	slides_auto_span:2000,
-	// 	slideDirection:0,
-	// 	slideButs:".gd1 .tab_butbox",		
-	// 	slides_to_l:$(".gd1 .tab_butbox span>a")[0],
-	// 	slides_to_r:$(".gd1 .tab_butbox span>a")[1],
-	// 	slides_fun: slide.definedfun
-	// 	}
-	// );
-	// var sygd2 = new slide(".gd2 .gd_data",".gd2 .gd_data .gd_item",{
-	// 	slideWidth:300,
-	// 	slideHeight:200,
-	// 	slides_auto_span:2000,
-	// 	slideDirection:1,
-	// 	slideButs:".gd2 .tab_butbox",
-	// 	slides_to_l:$(".gd2 .tab_butbox span>a")[0],
-	// 	slides_to_r:$(".gd2 .tab_butbox span>a")[1],
-	// 	slides_fun: slide.definedfun
-	// 	}
-	// );
-	// var sygd3 = new slide(".gd3 .gd_data",".gd3 .gd_data .gd_item",{
-	// 	slideWidth:300,
-	// 	slideHeight:200,
-	// 	slides_auto_span:0, //0 不自动切换
-	// 	slideDirection:2,
-	// 	slideButs:".gd3 .tab_butbox",
-	// 	slideButs_event:"hover",	//切换按钮的触发事件
-	// 	slides_to_l:$(".gd3 .tab_butbox span>a")[0],
-	// 	slides_to_r:$(".gd3 .tab_butbox span>a")[1],
-	// 	slides_fun:slide.definedfun
-	// 	}
-	// );	
+	var sygd1 = new slide(".gd1 .gd_data",".gd1 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slideButs:".gd1 .tab_butbox",		
+		slides_to_l:$(".gd1 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd1 .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	var sygd2 = new slide(".gd2 .gd_data",".gd2 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:1,
+		slideButs:".gd2 .tab_butbox",
+		slides_to_l:$(".gd2 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd2 .tab_butbox span>a")[1],
+		slides_fun: slide.definedfun
+		}
+	);
+	var sygd3 = new slide(".gd3 .gd_data",".gd3 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:0, //0 不自动切换
+		slideDirection:2,
+		slideButs:".gd3 .tab_butbox",
+		slideButs_event:"hover",	//切换按钮的触发事件
+		slides_to_l:$(".gd3 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd3 .tab_butbox span>a")[1],
+		slides_fun:slide.definedfun
+		}
+	);	
 	
-	// var sygd4 = new slide(".gd4 .gd_data",".gd4 .gd_data .gd_item",{
-	// 	slideWidth:300,
-	// 	slideHeight:200,
-	// 	slides_auto_span:2000,
-	// 	slideDirection:0,
-	// 	slides_xssm:3,
-	// 	slideButs:".gd4 .tab_butbox",
-	// 	slides_to_l:$(".gd4 .tab_butbox span>a")[0],
-	// 	slides_to_r:$(".gd4 .tab_butbox span>a")[1],
-	// 	slides_fun:slide.definedfun
-	// 	}
-	// );
+	var sygd4 = new slide(".gd4 .gd_data",".gd4 .gd_data .gd_item",{
+		slideWidth:300,
+		slideHeight:200,
+		slides_auto_span:2000,
+		slideDirection:0,
+		slides_xssm:3,
+		slideButs:".gd4 .tab_butbox",
+		slides_to_l:$(".gd4 .tab_butbox span>a")[0],
+		slides_to_r:$(".gd4 .tab_butbox span>a")[1],
+		slides_fun:slide.definedfun
+		}
+	);
 	
 
 	
 	var sygd5 = new slide(".gd5 .gd_data",".gd5 .gd_data .gd_item",{
 		slideWidth:300,
 		slideHeight:200,
-		slides_auto_span:0,
+		slides_auto_span:2000,
 		slideDirection:0,
 		slideSeries:1,
 		slideButs:".gd5 .tab_butbox",
@@ -94,7 +94,6 @@ $(function(){
 		slides_fun:slide.definedfun
 		}
 	);
-	
 	var sygd6 = new slide(".gd6 .gd_data",".gd6 .gd_data .gd_item",{
 		slideWidth:300,
 		slideHeight:200,
@@ -109,7 +108,7 @@ $(function(){
 		slides_fun:slide.definedfun
 		}
 	);
-	return;
+	
 	var sygd7 = new slide(".fullbox .gd_data",".fullbox .gd_data .gd_item",{
 		slideWidth:"100%",
 		slideHeight:200,
