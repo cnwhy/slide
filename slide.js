@@ -112,6 +112,7 @@ new slide("#id","#id>li",{
 		},
 		toItem: function(i,conn){
 			var o = this;
+			if(o._stopmark) return;
 			if (this.slides_xc) { //取消自动播放
 				clearTimeout(this.slides_xc);
 			}
@@ -150,16 +151,19 @@ new slide("#id","#id>li",{
 				(function(){
 					var ii = i;
 					var slideWidth = o.slidePercentcss || o.slideWidth;
-					var L0 = {"left": -o.numberOfSlides*slideWidth + (o.slidePercentcss ? "%" : "")}
+					var L0 = {"left": -o.numberOfSlides*slideWidth + (o.slidePercentcss ? "%" : "px")}
 						,animate = {
-							play:{"left": slideWidth * (-ii) + (o.slidePercentcss ? "%" : "")}
-							,L0:{"left": -(o.numberOfSlides+ii)* slideWidth + (o.slidePercentcss ? "%" : "")}
-							,unL0:{"left": -(ii-o.numberOfSlides)* slideWidth + (o.slidePercentcss ? "%" : "")}
+							play:{"left": slideWidth * (-ii) + (o.slidePercentcss ? "%" : "px")}
+							,L0:{"left": -(o.numberOfSlides+ii)* slideWidth + (o.slidePercentcss ? "%" : "px")}
+							,unL0:{"left": -(ii-o.numberOfSlides)* slideWidth + (o.slidePercentcss ? "%" : "px")}
 						}
 					if(ii<0){
-						o.slideInner.stop().css(L0)
-						ii = o.currentPosition;
+						o.slideInner.stop().css(L0);
+						animate.play = {"left": slideWidth * (-o.currentPosition) + (o.slidePercentcss ? "%" : "px")}
+						//ii = o.currentPosition;
 					}
+					o._stopmark = ii < 0 || (ii > o.numberOfSlides -1) ? 1 : 0;
+					console.log(o._stopmark);
 					o.slideInner.stop().animate(animate.play, o.slides_span,function(){
 						if(ii<0){
 							o.slideInner.css(animate.L0);
@@ -167,6 +171,7 @@ new slide("#id","#id>li",{
 						if(ii>o.numberOfSlides-1){
 							o.slideInner.css(animate.unL0);
 						}
+						o._stopmark = 0;
 						o.slides_end.call(o,o.currentPosition);
 					});
 				})()
